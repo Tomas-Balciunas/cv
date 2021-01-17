@@ -1,0 +1,557 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&display=swap');
+
+@mixin txtcntr {
+    text-align: center;
+}
+
+@mixin divcntr {
+    display: flex;
+    justify-content: center;
+}
+
+@mixin lineanim {
+    position: absolute;
+    height: 0.2em;
+    width: 0;
+    background: rgb(206, 171, 97);
+    opacity: 0;
+    z-index: 2;
+    outline: none;
+}
+
+@mixin menushadow {
+    box-shadow: 0px 0px 10px 10px rgba(206, 171, 97, 0.925) !important;
+}
+
+@mixin menubtnanim {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    opacity: 0;
+    outline: none;
+}
+
+@keyframes disappear {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+@keyframes reveal {
+    from {opacity: 0;}
+    to {opacity: 1;}
+    
+}
+
+@keyframes move1 {
+    to {transform: translateY(9.5em); opacity: 1;}
+}
+
+@keyframes move2 {
+    to {transform: translateY(19.3em); opacity: 1;}
+}
+
+@keyframes move3 {
+    to {transform: translateY(29.1em); opacity: 1;}
+}
+
+@keyframes grow {
+    to {width: 5em; opacity: 1;}
+}
+
+@keyframes reverse {
+    to {transform: scale(1);}
+}
+
+$fontclr: rgb(253, 244, 205);
+
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    background-image: url('src/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center top;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+
+.reveal {
+    animation: reveal 0.3s linear forwards;
+}
+
+.disappear {
+    animation: disappear 0.2s linear forwards;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@media screen and (min-width: 1025px) and (min-height: 800px) {
+
+.menucontainer {
+    height: 100%;
+    width: 15em;
+    border-right: solid rgb(206, 171, 97) 3px;
+    top: 0;
+    left: 0;
+    background-image: url('src/menubg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: right top;
+}
+
+.menu {
+    position: relative;
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    top: 4em;
+    left: 4em;
+    line-height: 5em;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.menu {
+    img {
+        position: absolute;
+        width: 5em;
+        height: 5em;
+    }
+}
+
+.plussign {
+    background-image: url('src/moon.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-size: 4em;
+    position: absolute;
+    z-index: 997;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: rgb(51, 50, 50);
+    border-radius: 50%;
+    outline: none;
+}
+
+.line1anim {
+    @include lineanim();
+    top: 4.4em;
+    left: 2.5em;
+    animation: grow 0.1s linear forwards;
+    transform: rotate(90deg);
+    transform-origin: left;
+}
+
+.line2anim {
+    @include lineanim();
+    left: 2.5em;
+    top: 14.2em;
+    animation: grow 0.1s 0.025s linear forwards;
+    transform: rotate(90deg);
+    transform-origin: left;
+}
+
+.line3anim {
+    @include lineanim();
+    top: 24em;
+    left: 2.5em;
+    animation: grow 0.1s 0.1s linear forwards;
+    transform: rotate(90deg);
+    transform-origin: left;
+}
+
+.btn1 {
+    background-image: url('src/me.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.btn2 {
+    background-image: url('src/projects.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.btn3 {
+    background-image: url('src/contacts.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.btn1:hover, .btn2:hover, .btn3:hover {
+    @include menushadow();
+}
+
+.btn1anim {
+    @include menubtnanim();
+    animation: move1 0.1s linear forwards;
+}
+
+.btn2anim {
+    @include menubtnanim();
+    animation: move2 0.15s 0.025s linear forwards;
+}
+
+
+.btn3anim {
+    @include menubtnanim();
+    animation: move3 0.2s 0.05s linear forwards;
+}
+
+.containerabout {
+    @include divcntr();
+    @include txtcntr();
+    align-items: center;
+    width: 100%;
+}
+
+.intro {
+    animation: reveal 1s linear forwards;
+    color: $fontclr;
+    h1 {
+        font-size: 3em;
+        margin-bottom: 2em;
+    }
+}
+
+.outro {
+    animation: disappear 0.2s linear forwards;
+    color: $fontclr;
+    h1 {
+        font-size: 3em;
+        margin-bottom: 2em;
+    }
+}
+
+.about {
+    @include divcntr();
+    align-items: center;
+    flex-flow: column;
+    width: 100%;
+    height: 100%;
+}
+
+.about1 {
+    @include divcntr();
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(192, 31, 31, 0.356);
+    width: 100%;
+    border-bottom: solid rgb(206, 171, 97) 3px;
+    border-top: solid rgb(206, 171, 97) 3px;
+    .wrapper {
+        width: 41em;
+        color: $fontclr;
+        margin: 2em;
+
+        h2 {
+            margin-bottom: 1.5em;
+            text-align: center;
+            font-size: 1.7em;
+        }
+        
+        img {
+            height: 17em;
+            border-radius: 50%;
+            float: left;
+            shape-outside: circle(50%);
+            margin-right: 2em;
+            border: solid rgb(206, 171, 97) 3px;
+        }
+
+        p {
+            font-size: 1.2em;
+        }
+    }
+}
+
+.about2 {
+    @include txtcntr();
+    background-color: rgba(192, 31, 31, 0.356);
+    width: 100%;
+    color: $fontclr;
+    border-bottom: solid rgb(206, 171, 97) 3px;
+
+    h2 {
+        margin-bottom: 1.5em;
+        text-align: center;
+        font-size: 1.7em;
+        margin-top: 2em;
+    }
+
+    .wrapper2 {
+        @include divcntr();
+        align-items: center;
+        flex-direction: row;
+        margin: 2em;
+
+        img {
+            height: 3em;
+            margin: 0.4em;
+        }
+
+        .skills1, .skills2, .skills3 {
+            margin-left: 2em;
+            margin-right: 2em;
+            div {
+                display: flex;
+                align-items: center;
+            }
+            
+        }
+    }
+}
+
+.projects {
+    @include divcntr();
+    align-items: center;
+    flex-flow: row;
+    width: 100%;
+    height: 100%;
+    color: $fontclr;
+    
+    .wrapper3 {
+        background-color: rgba(192, 31, 31, 0.356);
+        width: 100%;
+        border-bottom: solid rgb(206, 171, 97) 3px;
+        border-top: solid rgb(206, 171, 97) 3px;
+
+        h2 {
+            margin-bottom: 1.5em;
+            text-align: center;
+            font-size: 1.7em;
+            margin-top: 1.5em;
+            
+        }
+        .projectlist {
+            @include divcntr();
+            flex-wrap: wrap;
+
+            div {
+                @include divcntr();
+                align-items: center;
+                flex-flow: column;
+                margin-left: 0.75em;
+                margin-right: 0.75em;
+
+                h3 {
+                    margin-bottom: 0.5em;
+                }
+
+                a, a:visited {
+                    text-decoration: none;
+                    color: black;
+                    font-weight: bold;
+                    outline: none;
+                    border: solid rgb(206, 171, 97);
+                    border-radius: 0.5em;
+                    padding: 0.2em;
+                    width: 3em;
+                    text-align: center;
+                    background-color: rgb(228, 203, 150);
+                    margin-left: 1em;
+                    margin-right: 1em;
+                    margin-bottom: 2em;
+                    margin-top: 0.5em;
+                }
+
+                p {
+                    color: rgb(151, 150, 150);
+                    font-style: italic;
+                }
+
+                img {
+                    width: 18em;
+                    border: solid rgb(206, 171, 97) 3px;
+                    border-radius: 1em;
+                }
+            }
+        }
+    }
+}
+
+.contacts {
+    @include divcntr();
+    align-items: center;
+    flex-flow: row;
+    width: 100%;
+    height: 100%;
+    color: $fontclr;
+
+    .wrapper4 {
+        @include divcntr();
+        align-items: center;
+        flex-flow: column wrap;
+        background-color: rgba(192, 31, 31, 0.356);
+        width: 100%;
+        border-bottom: solid rgb(206, 171, 97) 3px;
+        border-top: solid rgb(206, 171, 97) 3px;
+
+        img {
+            height: 5em;
+            margin: 0em 1em 2em 1em;
+            border: solid rgb(206, 171, 97) 3px;
+            border-radius: 50%;
+        }
+
+        h2 {
+            margin-bottom: 1.5em;
+            font-size: 1.7em;
+            margin-top: 1.5em;
+        }
+
+        p {
+            margin-bottom: 0.2em;;
+        }
+    }
+}
+
+}
+
+
+@media screen and (max-width: 1024px) {
+    .menu {
+    position: relative;
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    top: 1em;
+    left: 1em;
+    line-height: 3em;
+    cursor: pointer;
+    z-index: 9999;
+    img {
+        position: absolute;
+        width: 3em;
+        height: 3em;
+    }
+    }
+
+    @mixin menubtnanim {
+        position: absolute;
+        border: solid black 0.3em;
+        width: 90%;
+        height: 90%;
+        border-radius: 50%;
+        opacity: 0;
+        outline: none;
+    }
+
+    .plussign {
+        font-size: 2em;
+        position: absolute;
+        z-index: 997;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        color: rgb(51, 50, 50);
+        border-radius: 50%;
+        outline: none;
+    }
+
+    @keyframes grow {
+        to {width: 2em; opacity: 1;}
+    }
+
+    .line1anim {
+        @include lineanim();
+        top: 1.5em;
+        left: 3em;
+        animation: grow 0.2s linear forwards;
+    }
+    
+    .line2anim {
+        @include lineanim();
+        top: 1.5em;
+        left: 8em;
+        animation: grow 0.2s linear forwards;
+    }
+    
+    .line3anim {
+       @include lineanim();
+       top: 1.5em;
+       left: 13em;
+       animation: grow 0.2s linear forwards;
+    }
+
+    .btn1 {
+        background-image: url('src/me.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .btn2 {
+        background-image: url('src/projects.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .btn3 {
+        background-image: url('src/contacts.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        margin-left: -0.2em;
+    }
+    
+    @keyframes move1 {
+        to {transform: translateX(5em); opacity: 1;}
+    }
+    
+    @keyframes move2 {
+        to {transform: translateX(10em); opacity: 1;}
+    }
+    
+    @keyframes move3 {
+        to {transform: translateX(15em); opacity: 1;}
+    }
+    .btn1anim {
+        @include menubtnanim();
+        animation: move1 0.2s linear forwards;
+    }
+    
+    .btn2anim {
+        @include menubtnanim();
+        animation: move2 0.2s linear forwards;
+    }
+    
+    
+    .btn3anim {
+        @include menubtnanim();
+        animation: move3 0.2s linear forwards;
+    }
+
+    .containerabout {
+        @include divcntr();
+        @include txtcntr();
+        margin-top: 2em;
+    }
+}
+
+
+
