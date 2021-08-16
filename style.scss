@@ -9,27 +9,8 @@
     justify-content: center;
 }
 
-@mixin lineanim {
-    position: absolute;
-    height: 0.2em;
-    width: 0;
-    background: rgb(206, 171, 97);
-    opacity: 0;
-    z-index: 2;
-    outline: none;
-}
-
 @mixin menushadow {
-    box-shadow: 0px 0px 10px 10px rgba(206, 171, 97, 0.925) !important;
-}
-
-@mixin menubtnanim {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    opacity: 0;
-    outline: none;
+    text-shadow: 0 0 4px white;
 }
 
 @keyframes disappear {
@@ -41,22 +22,6 @@
     from {opacity: 0;}
     to {opacity: 1;}
     
-}
-
-@keyframes move1 {
-    to {transform: translateY(9.5em); opacity: 1;}
-}
-
-@keyframes move2 {
-    to {transform: translateY(19.3em); opacity: 1;}
-}
-
-@keyframes move3 {
-    to {transform: translateY(29.1em); opacity: 1;}
-}
-
-@keyframes grow {
-    to {width: 5em; opacity: 1;}
 }
 
 @keyframes reverse {
@@ -81,14 +46,13 @@ $fontclr: rgb(253, 244, 205);
 
 html, body {
     height: 100%;
+    overflow: auto;
 }
 
 .container {
-    width: 100%;
-    height: 100%;
     display: flex;
+    flex-flow: wrap column;
 }
-
 
 .reveal {
     animation: reveal 0.3s linear forwards;
@@ -102,130 +66,44 @@ html, body {
     display: none !important;
 }
 
-@media screen and (min-width: 1025px) and (min-height: 800px) {
-
 .menucontainer {
-    height: 100%;
-    width: 15em;
-    border-right: solid rgb(206, 171, 97) 3px;
-    top: 0;
-    left: 0;
-    background-image: url('src/menubg.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: right top;
-}
-
-.menu {
-    position: relative;
-    width: 5em;
     height: 5em;
-    border-radius: 50%;
-    top: 4em;
-    left: 4em;
-    line-height: 5em;
-    cursor: pointer;
-    z-index: 9999;
-}
-
-.menu {
-    img {
-        position: absolute;
-        width: 5em;
-        height: 5em;
-    }
-}
-
-.plussign {
-    background-image: url('src/moon.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    font-size: 4em;
-    position: absolute;
-    z-index: 997;
     width: 100%;
-    height: 100%;
-    text-align: center;
-    color: rgb(51, 50, 50);
-    border-radius: 50%;
-    outline: none;
-}
-
-.line1anim {
-    @include lineanim();
-    top: 4.4em;
-    left: 2.5em;
-    animation: grow 0.1s linear forwards;
-    transform: rotate(90deg);
-    transform-origin: left;
-}
-
-.line2anim {
-    @include lineanim();
-    left: 2.5em;
-    top: 14.2em;
-    animation: grow 0.1s 0.025s linear forwards;
-    transform: rotate(90deg);
-    transform-origin: left;
-}
-
-.line3anim {
-    @include lineanim();
-    top: 24em;
-    left: 2.5em;
-    animation: grow 0.1s 0.1s linear forwards;
-    transform: rotate(90deg);
-    transform-origin: left;
+    color: $fontclr;
+    font-size: 1.5em;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    border-bottom: solid rgb(206, 171, 97) 2px;
+    background-image: url('src/menubg.jpg');
 }
 
 .btn1 {
-    background-image: url('src/me.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    cursor: pointer;
 }
 
 .btn2 {
-    background-image: url('src/projects.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    cursor: pointer;
+    margin-left: 2em;
+    margin-right: 2em;
 }
 
 .btn3 {
-    background-image: url('src/contacts.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    cursor: pointer;
 }
 
 .btn1:hover, .btn2:hover, .btn3:hover {
     @include menushadow();
 }
 
-.btn1anim {
-    @include menubtnanim();
-    animation: move1 0.1s linear forwards;
-}
-
-.btn2anim {
-    @include menubtnanim();
-    animation: move2 0.15s 0.025s linear forwards;
-}
-
-
-.btn3anim {
-    @include menubtnanim();
-    animation: move3 0.2s 0.05s linear forwards;
-}
-
 .containerabout {
     @include divcntr();
     @include txtcntr();
     align-items: center;
-    width: 100%;
+    justify-content: center;
+    height: 100%;
+    margin-top: 7.5em;
 }
 
 .intro {
@@ -251,7 +129,7 @@ html, body {
     align-items: center;
     flex-flow: column;
     width: 100%;
-    height: 100%;
+    justify-content: center;
 }
 
 .about1 {
@@ -261,7 +139,6 @@ html, body {
     background-color: rgba(192, 31, 31, 0.356);
     width: 100%;
     border-bottom: solid rgb(206, 171, 97) 3px;
-    border-top: solid rgb(206, 171, 97) 3px;
     .wrapper {
         width: 41em;
         color: $fontclr;
@@ -328,7 +205,7 @@ html, body {
 .projects {
     @include divcntr();
     align-items: center;
-    flex-flow: row;
+    justify-content: center;
     width: 100%;
     height: 100%;
     color: $fontclr;
@@ -337,7 +214,6 @@ html, body {
         background-color: rgba(192, 31, 31, 0.356);
         width: 100%;
         border-bottom: solid rgb(206, 171, 97) 3px;
-        border-top: solid rgb(206, 171, 97) 3px;
 
         h2 {
             margin-bottom: 1.5em;
@@ -354,8 +230,8 @@ html, body {
                 @include divcntr();
                 align-items: center;
                 flex-flow: column;
-                margin-left: 0.75em;
-                margin-right: 0.75em;
+                margin-left: 1em;
+                margin-right: 1em;
 
                 h3 {
                     margin-bottom: 0.5em;
@@ -384,7 +260,7 @@ html, body {
                 }
 
                 img {
-                    width: 18em;
+                    width: 19em;
                     border: solid rgb(206, 171, 97) 3px;
                     border-radius: 1em;
                 }
@@ -396,9 +272,9 @@ html, body {
 .contacts {
     @include divcntr();
     align-items: center;
-    flex-flow: row;
-    width: 100%;
     height: 100%;
+    width: 100%;
+    margin-top: 7.5em;
     color: $fontclr;
 
     .wrapper4 {
@@ -429,127 +305,37 @@ html, body {
     }
 }
 
+
+
+//--------------------------------------------------------------------------------------------------------------------------------------------
+
+
+@media screen and (max-width: 410px) {
+    .menucontainer {
+        font-size: 1.2em;
+    }
+
+    .btn2 {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+
+    .contacts {
+        .wrapper4 {
+            img {
+                margin: 0em 0.5em 0.5em 0.5em;
+            }
+        }
+    }
 }
 
+@media screen and (max-height: 620px) {
+    .contacts {
+        margin-top: 0;
 
-@media screen and (max-width: 1024px) {
-    .menu {
-    position: relative;
-    width: 3em;
-    height: 3em;
-    border-radius: 50%;
-    top: 1em;
-    left: 1em;
-    line-height: 3em;
-    cursor: pointer;
-    z-index: 9999;
-    img {
-        position: absolute;
-        width: 3em;
-        height: 3em;
-    }
-    }
-
-    @mixin menubtnanim {
-        position: absolute;
-        border: solid black 0.3em;
-        width: 90%;
-        height: 90%;
-        border-radius: 50%;
-        opacity: 0;
-        outline: none;
-    }
-
-    .plussign {
-        font-size: 2em;
-        position: absolute;
-        z-index: 997;
-        width: 100%;
-        height: 100%;
-        text-align: center;
-        color: rgb(51, 50, 50);
-        border-radius: 50%;
-        outline: none;
-    }
-
-    @keyframes grow {
-        to {width: 2em; opacity: 1;}
-    }
-
-    .line1anim {
-        @include lineanim();
-        top: 1.5em;
-        left: 3em;
-        animation: grow 0.2s linear forwards;
-    }
-    
-    .line2anim {
-        @include lineanim();
-        top: 1.5em;
-        left: 8em;
-        animation: grow 0.2s linear forwards;
-    }
-    
-    .line3anim {
-       @include lineanim();
-       top: 1.5em;
-       left: 13em;
-       animation: grow 0.2s linear forwards;
-    }
-
-    .btn1 {
-        background-image: url('src/me.png');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-    }
-    
-    .btn2 {
-        background-image: url('src/projects.png');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-    }
-    
-    .btn3 {
-        background-image: url('src/contacts.png');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        margin-left: -0.2em;
-    }
-    
-    @keyframes move1 {
-        to {transform: translateX(5em); opacity: 1;}
-    }
-    
-    @keyframes move2 {
-        to {transform: translateX(10em); opacity: 1;}
-    }
-    
-    @keyframes move3 {
-        to {transform: translateX(15em); opacity: 1;}
-    }
-    .btn1anim {
-        @include menubtnanim();
-        animation: move1 0.2s linear forwards;
-    }
-    
-    .btn2anim {
-        @include menubtnanim();
-        animation: move2 0.2s linear forwards;
-    }
-    
-    
-    .btn3anim {
-        @include menubtnanim();
-        animation: move3 0.2s linear forwards;
-    }
-
-    .containerabout {
-        @include divcntr();
-        @include txtcntr();
-        margin-top: 2em;
+        .wrapper4 {
+            border-top: none;
+        }
     }
 }
 

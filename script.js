@@ -1,7 +1,3 @@
-let menubtn = document.querySelector('.plussign');
-let line1 = document.querySelector('.line1');
-let line2 = document.querySelector('.line2');
-let line3 = document.querySelector('.line3');
 let btn1 = document.querySelector('.btn1');
 let btn2 = document.querySelector('.btn2');
 let btn3 = document.querySelector('.btn3');
@@ -9,42 +5,6 @@ let intro = document.querySelector(".containerabout");
 let about = document.querySelector('.about');
 let projects = document.querySelector('.projects');
 let contacts = document.querySelector('.contacts');
-
-menubtn.addEventListener("click", function() {
-    if (menubtn.classList.contains('inactive')) 
-        {
-        menubtn.classList.remove('inactive');
-        menubtn.classList.add('active');
-        line1.classList.add('line1anim');
-        line2.classList.add('line2anim');
-        line3.classList.add('line3anim');
-        btn1.classList.add('btn1anim');
-        btn2.classList.add('btn2anim');
-        btn3.classList.add('btn3anim');
-        menubtn.animate([
-            {transform: "rotate(180deg)"}
-        ], {
-            duration: 200,
-            fill: 'forwards'
-        });
-        } 
-        else {
-        menubtn.classList.add('inactive');
-        menubtn.classList.remove('active');
-        line1.classList.remove('line1anim');
-        line2.classList.remove('line2anim');
-        line3.classList.remove('line3anim');
-        btn1.classList.remove('btn1anim');
-        btn2.classList.remove('btn2anim');
-        btn3.classList.remove('btn3anim');
-        menubtn.animate([
-            {transform: "rotate(0deg)"}
-        ], {
-            duration: 200,
-            fill: 'forwards'
-        });
-        }
-});
 
 function disappear() {
     intro.classList.remove("intro")
