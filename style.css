@@ -231,6 +231,11 @@ html, body {
   font-size: 1.2em;
 }
 
+.about1 .wrapper .aboutinfo {
+  text-align: justify;
+  margin-top: 0.7em;
+}
+
 .about2 {
   text-align: center;
   background-color: rgba(192, 31, 31, 0.356);
@@ -258,8 +263,8 @@ html, body {
           align-items: center;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
   margin: 2em;
 }
 
@@ -444,6 +449,48 @@ html, body {
   }
   .contacts .wrapper4 {
     border-top: none;
+  }
+}
+
+@media screen and (max-width: 735px) {
+  .about1 .wrapper {
+    width: 100%;
+    color: #fdf4cd;
+    margin: 2em;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column wrap;
+            flex-flow: column wrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .about1 .wrapper h2 {
+    margin-bottom: 1.5em;
+    text-align: center;
+    font-size: 1.7em;
+  }
+  .about1 .wrapper img {
+    height: 10em;
+    width: 10em;
+    border-radius: 50%;
+    border: solid #ceab61 3px;
+    margin-right: 0;
+    margin-bottom: 1em;
+  }
+  .about1 .wrapper p {
+    font-size: 4vw;
+    font-size: calc(80% + 2vw);
+    text-align: center;
+    word-wrap: normal;
+  }
+  .about1 .wrapper .aboutinfo {
+    height: auto;
+    text-align: left;
+    width: 80vw;
   }
 }
 /*# sourceMappingURL=style.css.map */
