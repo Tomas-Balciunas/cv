@@ -111,6 +111,7 @@ html, body {
           align-items: center;
   border-bottom: solid #ceab61 2px;
   background-image: url("src/menubg.jpg");
+  background-position: center;
 }
 
 .btn1 {
